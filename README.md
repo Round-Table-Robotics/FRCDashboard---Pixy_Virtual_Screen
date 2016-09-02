@@ -1,6 +1,8 @@
 #Pixy Virtual Screen
 Our Team uses the Pixy as a way to cameratrack objects and because it has no live feed we use the variables it outputs to simulate a live feed. Becasue it only uses the variables it gives us it has very little detail. But it is helpful none the less.
 
+![Image of Yaktocat](https://raw.githubusercontent.com/Round-Table-Robotics/FRCDashboard---Pixy_Virtual_Screen/01c5def9fe008faeb0c852dc113c32df2f308b4f/Display.PNG)
+
 
 ## FRC Dashboard
 FRC Dashboard is a fully customizable dashboard for [FIRST Robotics Competition (FRC)](http://firstinspires.org/robotics/frc) which is based on web languages (JavaScript/CSS/HTML). It's completely legal for competition, and can be used to give your whole drive team significantly richer control of your robot.
