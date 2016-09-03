@@ -3,7 +3,9 @@ Our Team uses the Pixy as a way to cameratrack objects and because it has no liv
 
 ##Changes
 Relocated the Widgets
+
 Added a Switch for Device Input (Between Virtual Pixy Screen and a Network Cam)
+
 
 
 ##Virtual Pixy Screen
