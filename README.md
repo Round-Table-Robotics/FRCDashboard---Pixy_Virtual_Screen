@@ -1,8 +1,18 @@
 #Pixy Virtual Screen
 Our Team uses the Pixy as a way to cameratrack objects and because it has no live feed we use the variables it outputs to simulate a live feed. Becasue it only uses the variables it gives us it has very little detail. But it is helpful none the less.
 
-![Image of Yaktocat](https://raw.githubusercontent.com/Round-Table-Robotics/FRCDashboard---Pixy_Virtual_Screen/01c5def9fe008faeb0c852dc113c32df2f308b4f/Display.PNG)
+##Changes
+Relocated the Widgets
+Added a Switch for Device Input (Between Virtual Pixy Screen and a Network Cam)
 
+
+##Virtual Pixy Screen
+![Image of The Virtual Screen](https://github.com/Round-Table-Robotics/FRCDashboard---Pixy_Virtual_Screen/blob/master/Virtual%20Display.PNG?raw=true)
+The green rectangles are targets that are picked up by the Pixy and sent to the dashboard after I test the Program on a Roborio I will be adding a connetion indicator insted of the green rectangles setup like a goal.
+
+##Network Cam Screen
+![Image of The WebCam Screen](https://github.com/Round-Table-Robotics/FRCDashboard---Pixy_Virtual_Screen/blob/master/WebCam.PNG?raw=true)
+The BB-8 is an example of a Network Cam you can change the location of your network cam in the Index.html I suggest that you use mDNS so you can easily find the Camera or Device on the FMS or network that you are using. as you can see I am using PI1792.local:443 that is the custom address set from the mDNS the PI1792 is from the name of the device on the network. If you want to stream Video without a network cam I recommend a webcam and a raspberry pi using [MotionEye](https://github.com/ccrisan/motioneye).
 
 ## FRC Dashboard
 FRC Dashboard is a fully customizable dashboard for [FIRST Robotics Competition (FRC)](http://firstinspires.org/robotics/frc) which is based on web languages (JavaScript/CSS/HTML). It's completely legal for competition, and can be used to give your whole drive team significantly richer control of your robot.
