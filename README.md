@@ -2,9 +2,8 @@
 Our Team uses the Pixy as a way to cameratrack objects and because it has no live feed we use the variables it outputs to simulate a live feed. Becasue it only uses the variables it gives us it has very little detail. But it is helpful none the less.
 
 ##Changes
-Relocated the Widgets
-
-Added a Switch for Device Input (Between Virtual Pixy Screen and a Network Cam)
+1. Relocated the Widgets
+2. Added a Switch for Device Input (Between Virtual Pixy Screen and a Network Cam)
 
 
 
