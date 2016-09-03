@@ -164,20 +164,20 @@ function onValueChanged(key, value, isNew) {
 			
 		case '/SmartDashboard/camera/type':
 			if (value) { // If function is active:
-				//True
-				ui.example.button.className = 'active';
-				ui.virtualdisplay.target0.style.opacity = 1;
-				ui.virtualdisplay.target1.style.opacity = 1;
-				ui.virtualdisplay.target2.style.opacity = 1;
-				ui.virtualdisplay.webcam.style.opacity = 0;		
-			} 
-			else { // Otherwise
 				//False
-				ui.example.button.className = '';
+				ui.virtualdisplay.button.className = '';
 				ui.virtualdisplay.target0.style.opacity = 0;
 				ui.virtualdisplay.target1.style.opacity = 0;
 				ui.virtualdisplay.target2.style.opacity = 0;
 				ui.virtualdisplay.webcam.style.opacity = 1;
+			} 
+			else { // Otherwise
+				//True
+				ui.virtualdisplay.button.className = 'active';
+				ui.virtualdisplay.target0.style.opacity = 1;
+				ui.virtualdisplay.target1.style.opacity = 1;
+				ui.virtualdisplay.target2.style.opacity = 1;
+				ui.virtualdisplay.webcam.style.opacity = 0;
 			}
 			break;
 
@@ -384,7 +384,7 @@ ui.virtualdisplay.multiplyer.oninput = function() {
 
 ui.virtualdisplay.button.onclick = function() {
 	// Set NetworkTables values to the opposite of whether button has active class.
-	NetworkTables.setValue('/SmartDashboard/camera/type', this.className != 'active1');
+	NetworkTables.setValue('/SmartDashboard/camera/type', this.className != '');
 };
 
 // Get value of arm height slider when it's adjusted
