@@ -79,8 +79,7 @@ header {
 	left: 0;
 	z-index: 10000;
     background-color: #000;
-    /* You'll need to mess with this a bit to get your camera to work. Replace the url with a live-updating image feed from your camera. Using other camera streaming systems will require some tweaking. */
-    background-image: url('LINK TO CAMERA SOURCE HERE');
+
 }
 #tuning {
     width: 50vw;
@@ -146,9 +145,14 @@ text {
 aside {
     right: 0;
     top: 0;
-    width: 15vw;
+    width: 18vw;
     height: 100vh;
 }
 aside > * {
     margin-bottom: 20px;
+}
+.target{
+	fill: rgb(0,0,0);
+	stroke-width: 5;
+	stroke: rgb(0,255,0);
 }

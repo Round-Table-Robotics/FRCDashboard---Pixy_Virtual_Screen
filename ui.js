@@ -11,6 +11,8 @@ var ui = {
 		number: document.getElementById('gyro-number')
 	},
 	virtualdisplay: {
+		webcam: document.getElementById('webcam'),
+		button: document.getElementById('displaytype'),
 		target0: document.getElementById('target0'),
 		target1: document.getElementById('target1'),
 		target2: document.getElementById('target2'),
@@ -89,25 +91,25 @@ function onValueChanged(key, value, isNew) {
 		
 		//Target1
 		//X Axis
-		case '/SmartDashboard/Camera/target0/x_axis':
+		case '/SmartDashboard/Camera/target1/x_axis':
 			// Calculate Visual Graphics
 			var x_axis = value;
 			ui.virtualdisplay.target1.x = value;
 			break;
 		//Y Axis
-		case '/SmartDashboard/Camera/target0/y_axis':
+		case '/SmartDashboard/Camera/target1/y_axis':
 			// Calculate Visual Graphics
 			var y_axis = value;
 			ui.virtualdisplay.target1.y = value;
 			break;
 		//Height
-		case '/SmartDashboard/Camera/target0/height':
+		case '/SmartDashboard/Camera/target1/height':
 			// Calculate Visual Graphics
 			var height = value;
 			ui.virtualdisplay.target1.height = value;
 			break;	
 		//Width
-		case '/SmartDashboard/Camera/target0/width':
+		case '/SmartDashboard/Camera/target1/width':
 			// Calculate Visual Graphics
 			var width = value;
 			ui.virtualdisplay.target1.width = value;
@@ -116,25 +118,25 @@ function onValueChanged(key, value, isNew) {
 		
 		//Target2
 		//X Axis
-		case '/SmartDashboard/Camera/target0/x_axis':
+		case '/SmartDashboard/Camera/target2/x_axis':
 			// Calculate Visual Graphics
 			var x_axis = value;
 			ui.virtualdisplay.target2.x = value;
 			break;
 		//Y Axis
-		case '/SmartDashboard/Camera/target0/y_axis':
+		case '/SmartDashboard/Camera/target2/y_axis':
 			// Calculate Visual Graphics
 			var y_axis = value;
 			ui.virtualdisplay.target2.y = value;
 			break;
 		//Height
-		case '/SmartDashboard/Camera/target0/height':
+		case '/SmartDashboard/Camera/target2/height':
 			// Calculate Visual Graphics
 			var height = value;
 			ui.virtualdisplay.target2.height = value;
 			break;	
 		//Width
-		case '/SmartDashboard/Camera/target0/width':
+		case '/SmartDashboard/Camera/target2/width':
 			// Calculate Visual Graphics
 			var width = value;
 			ui.virtualdisplay.target2.width = value;
@@ -147,12 +149,39 @@ function onValueChanged(key, value, isNew) {
 			
 		case '/SmartDashboard/camera/multiplyer':
 			// Calculate the Screen
-			var displaymultiplyer = value;
+			var displaymultiplyer = value / 4;
 
 			// Resize the Screen
-			ui.virtualdisplay.display.style.height = "400" * displaymultiplyer;
-			ui.virtualdisplay.display.style.width = "640" * displaymultiplyer;
-			break;	
+			//if(displaytypesize == 2){
+				ui.virtualdisplay.display.style.height = "400" * displaymultiplyer;
+				ui.virtualdisplay.display.style.width = "640" * displaymultiplyer;
+			//}
+			//if(displaytypesize == 1){
+			//	ui.virtualdisplay.display.style.height = "720" * displaymultiplyer;
+			//	ui.virtualdisplay.display.style.width = "1280" * displaymultiplyer;
+			//}
+			break;
+			
+		case '/SmartDashboard/camera/type':
+			if (value) { // If function is active:
+				//True
+				ui.example.button.className = 'active';
+				ui.virtualdisplay.target0.style.opacity = 1;
+				ui.virtualdisplay.target1.style.opacity = 1;
+				ui.virtualdisplay.target2.style.opacity = 1;
+				ui.virtualdisplay.webcam.style.opacity = 0;		
+			} 
+			else { // Otherwise
+				//False
+				ui.example.button.className = '';
+				ui.virtualdisplay.target0.style.opacity = 0;
+				ui.virtualdisplay.target1.style.opacity = 0;
+				ui.virtualdisplay.target2.style.opacity = 0;
+				ui.virtualdisplay.webcam.style.opacity = 1;
+			}
+			break;
+
+			
 		case '/SmartDashboard/drive/navX/yaw': // Gyro rotation
 			ui.gyro.val = value;
 			ui.gyro.visualVal = Math.floor(ui.gyro.val - ui.gyro.offset);
@@ -351,6 +380,11 @@ ui.autoSelect.onchange = function() {
 // Get value the Screen Mutiplyer When adjusted
 ui.virtualdisplay.multiplyer.oninput = function() {
 	NetworkTables.setValue('/SmartDashboard/camera/multiplyer', parseInt(this.value));
+};
+
+ui.virtualdisplay.button.onclick = function() {
+	// Set NetworkTables values to the opposite of whether button has active class.
+	NetworkTables.setValue('/SmartDashboard/camera/type', this.className != 'active1');
 };
 
 // Get value of arm height slider when it's adjusted

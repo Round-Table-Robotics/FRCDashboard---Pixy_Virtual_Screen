@@ -20,9 +20,10 @@
     <div id="camera">
 		<!-- Virtual Camera For Without Webcam -->
         <svg id="virtualdisplay" preserveAspectRatio="xMidYMid meet" viewBox="0 0 640 400">
-            <rect id="target0" x="200" y="20" width="180" height="100" style="fill:rgb(0,0,0);stroke-width:5;stroke:rgb(0,255,0)" />
-			<rect id="target1" x="80" y="20" width="100" height="100" style="fill:rgb(0,0,0);stroke-width:5;stroke:rgb(0,255,0)" />
-			<rect id="target2" x="400" y="20" width="100" height="100" style="fill:rgb(0,0,0);stroke-width:5;stroke:rgb(0,255,0)" />
+            <rect id="target0" x="200" y="20" width="180" height="100" class="target" />
+			<rect id="target1" x="80" y="20" width="100" height="100" class="target" />
+			<rect id="target2" x="400" y="20" width="100" height="100" class="target" />
+			<image id="webcam" x="0" y="0" width="100%" height="100%" href="https://upload.wikimedia.org/wikipedia/commons/d/db/Capybara_Hattiesburg_Zoo_(70909b-50)_640x400.jpg">
         </svg>
 	</div>
     <div id="tuning" style="display: none;">
@@ -33,24 +34,7 @@
     </div>
     <!-- The main body of the dashboard, by default contains the gyro monitor and the robot diagram -->
     <article>
-        <!-- Gyroscope -->
-        <svg id="gyro">
-            <circle cx="85" cy="85" r="83" />
-            <circle cx="85" cy="85" r="50" />
-            <rect id="gyro-arm" x="80" y="5" width="10" height="80" />
-            <text id="gyro-number" x="90" y="115">0º</text>
-        </svg>
-        <!-- Example robot diagram, arm moves when encoder value changes -->
-        <svg id="robot-diagram" width="332" height="450">
-            <text x="40" y="340">Example SVG Robot Diagram</text>
-            <rect x="75" y="360" width="230" height="40" />
-            <rect x="85" y="370" width="210" height="40" />
-            <rect id="robot-arm" x="5" y="375" width="80" height="10" />
-            <circle cx="100" cy="410" r="25" />
-            <circle cx="260" cy="410" r="25" />
-            <rect x="60" y="380" width="250" height="30" />
-            <text x="185" y="405" id="team" text-anchor="middle">1792</text>
-        </svg>
+       <!-- Moved Gyro an Robot Example -->
     </article>
     <!-- The sidebar of the dashboard. Designed for smaller control elements like selection boxes and small buttons. -->
     <aside>
@@ -72,9 +56,29 @@
             <input id="arm-position" type="range" min="0" max="1200" value="770">
         </div>
 		<div>
-            <p>Size of Virtual Display</p>
-            <input id="virtualdisplaysize" type="range" min="0" max="2" value="1" step="1">
+            <p>Size of Display</p>
+            <input id="virtualdisplaysize" type="range" min="0" max="10" value="1" step="1">
+			<br>
+			<button id="displaytype">Switch Display Type</button>
         </div>
+		<!-- Gyroscope -->
+        <svg id="gyro">
+            <circle cx="85" cy="85" r="83" />
+            <circle cx="85" cy="85" r="50" />
+            <rect id="gyro-arm" x="80" y="5" width="10" height="80" />
+            <text id="gyro-number" x="90" y="115">0º</text>
+        </svg>
+		 <!-- Example robot diagram, arm moves when encoder value changes -->
+        <svg id="robot-diagram" width="332" height="450">
+            <text x="40" y="340">Example SVG Robot Diagram</text>
+            <rect x="75" y="360" width="230" height="40" />
+            <rect x="85" y="370" width="210" height="40" />
+            <rect id="robot-arm" x="5" y="375" width="80" height="10" />
+            <circle cx="100" cy="410" r="25" />
+            <circle cx="260" cy="410" r="25" />
+            <rect x="60" y="380" width="250" height="30" />
+            <text x="185" y="405" id="team" text-anchor="middle">1792</text>
+        </svg>
     </aside>
     <script src="/networktables/networktables.js"></script>
     <script src="ui.js"></script>
